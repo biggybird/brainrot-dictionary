@@ -2,7 +2,7 @@
 
 **Decode the internet. Speak fluent brainrot. 💀**
 
-🌐 **[Open the live website](https://biggybird.github.io/brainrot-dictionary/)** · 🧑‍💻 **[View the source code](https://github.com/biggybird/brainrot-dictionary)**
+🌐 **[Open the live website](https://biggybird.github.io/brainrot-dictionary/)** · ✨ **[Try Brainrot AI](https://biggybird.github.io/brainrot-dictionary/ai.html)** · 🧑‍💻 **[View the source code](https://github.com/biggybird/brainrot-dictionary)**
 
 Brainrot Dictionary is a playful, mobile-friendly web app for exploring Gen-Z slang, gaming terms, TikTok vocabulary, memes, and internet shorthand. Search for a word, learn what it means, see it used in a sentence, and test your knowledge with a brainrot quiz.
 
@@ -18,6 +18,7 @@ Brainrot Dictionary is a playful, mobile-friendly web app for exploring Gen-Z sl
 - **Copy and share** word definitions and quiz results where supported by the browser.
 - **Dark and light themes** with the selected theme saved on your device.
 - **Responsive interface**, keyboard search shortcut, reduced-motion support, and accessible labels.
+- **Brainrot AI chat** page scaffold with normal and Gen-Z-style response modes, powered by a server-side Gemini API endpoint when deployed on Vercel.
 
 ## 🛠️ Built With
 
@@ -26,7 +27,7 @@ Brainrot Dictionary is a playful, mobile-friendly web app for exploring Gen-Z sl
 - Vanilla JavaScript
 - Browser LocalStorage and Web Share / Clipboard APIs where available
 
-No framework, backend, account, or paid API is required. The translator runs locally and is **not an AI-powered service**.
+The dictionary and classic translator run locally. The separate Brainrot AI chat requires a Vercel backend and a Gemini API key; never place the key in public frontend code. Gemini free-tier availability and quotas depend on Google’s current terms.
 
 ## 🚀 Run Locally
 
@@ -43,9 +44,25 @@ brainrot-dictionary/
 ├── index.html   # App structure and accessible page sections
 ├── style.css    # Responsive layout, themes, cards, and animations
 ├── script.js    # Dictionary data and app interactions
+├── ai.html      # Gemini-powered chat interface
+├── ai-chat.js   # Chat frontend
+├── ai-chat.css  # Chat styles
+├── api/chat.js  # Server-side Gemini API endpoint for Vercel
+├── vercel.json  # Vercel function configuration
+├── package.json # Minimal project metadata
 ├── README.md    # Project documentation
 └── LICENSE      # MIT License
 ```
+
+## 🤖 Enable Brainrot AI on Vercel
+
+1. Import this repository into your Vercel account and deploy it. The `api/chat.js` serverless function must be hosted on Vercel; GitHub Pages alone cannot run it.
+2. In Vercel project **Settings → Environment Variables**, add `GEMINI_API_KEY` with your key from [Google AI Studio](https://aistudio.google.com/). Keep the key private and never commit it to GitHub.
+3. Redeploy after adding the environment variable.
+4. If Vercel gives the project a URL other than `https://brainrot-dictionary.vercel.app`, update `API_URL` at the top of `ai-chat.js` to that project URL, then commit the change.
+5. The public GitHub Pages frontend calls the Vercel API endpoint. The AI chat will not work until the backend is deployed and configured.
+
+The endpoint limits the conversation history and message length, but a public AI endpoint can still incur usage. Review Gemini quotas and consider adding stronger rate limiting before promoting it widely.
 
 ## 💾 Privacy
 
