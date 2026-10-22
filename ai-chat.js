@@ -1,5 +1,5 @@
 // Set this to the deployed Vercel URL if your project uses a different domain.
-const API_URL = "https://brainrot-dictionary.vercel.app/api/chat";
+const API_URL = "https://biggybird-brainrot-dictionary.vercel.app/api/chat";
 const $ = (selector) => document.querySelector(selector);
 const form = $("#chatForm");
 const input = $("#promptInput");
