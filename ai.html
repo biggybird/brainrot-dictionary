@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#050507">
+<meta name="description" content="Ask Brainrot AI questions about coding, learning, science, writing, and more."><title>Brainrot AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="ai-chat.css">
+</head>
+<body>
+<header class="top"><a class="logo ai-logo" href="index.html">BRAIN<span>ROT</span><small>AI chat</small></a><div class="top-actions"><a class="btn ghost sm" href="index.html">← Dictionary</a><button class="icon-btn" id="themeBtn" aria-label="Switch theme">☀️</button></div></header>
+<main class="wrap ai-wrap">
+<section class="ai-heading"><span class="label">Powered by Gemini</span><h1 class="h2">Ask <span>almost anything.</span></h1><p class="sub">Coding, maths, ideas, explanations, writing, random curiosity. One chat, many brain cells.</p></section>
+<section class="chat-shell glass" aria-label="Brainrot AI chat">
+<div class="chat-toolbar"><div><strong>Brainrot AI</strong><p id="status" role="status">Ready when you are.</p></div><label class="mode-switch" for="mode"><input id="mode" type="checkbox"> 💀 Brainrot mode</label><button class="btn ghost sm" id="clearChat" type="button">New chat</button></div>
+<div id="messages" class="messages" aria-live="polite"><div class="welcome" id="welcome"><div class="welcome-icon">✦</div><h2>What's on your mind?</h2><p>Ask a question. We'll figure it out together.</p><div class="prompt-grid">
+<button type="button" class="prompt" data-prompt="Explain Java loops to a beginner with examples.">💻 Explain Java loops</button>
+<button type="button" class="prompt" data-prompt="Teach me the basics of electricity step by step.">⚡ Learn a concept</button>
+<button type="button" class="prompt" data-prompt="Give me three creative project ideas I can build with HTML, CSS and JavaScript.">🛠️ Project ideas</button>
+<button type="button" class="prompt" data-prompt="Explain black holes in simple language.">🌌 Random curiosity</button>
+</div></div></div>
+<form id="chatForm" class="chat-form"><label class="sr-only" for="promptInput">Message Brainrot AI</label><textarea id="promptInput" rows="1" maxlength="2000" placeholder="Ask anything… (Enter to send, Shift+Enter for a new line)" required></textarea><button class="btn send-btn" id="sendBtn" type="submit">Send ↑</button></form>
+<p class="chat-footnote">AI can make mistakes. Don't share passwords, API keys, or sensitive personal information.</p>
+</section></main><script src="ai-chat.js"></script></body></html>
