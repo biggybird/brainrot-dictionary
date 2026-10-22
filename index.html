@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Brainrot Dictionary — the Gen-Z slang index</title>
+  <meta name="description" content="Search, learn, translate and quiz yourself on Gen-Z slang, memes and brainrot vocabulary.">
+  <meta name="theme-color" content="#050507">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Top bar: logo + theme switch -->
+  <header class="top">
+    <div class="logo" aria-label="Brainrot Dictionary">BRAIN<span>ROT</span><small>dictionary</small></div>
+    <button class="icon-btn" id="themeBtn" aria-label="Switch to light theme" title="Toggle theme">☀️</button>
+  </header>
+
+  <!-- Navigation (bottom bar on phones, inline on desktop) -->
+  <nav class="tabs" aria-label="Sections">
+    <button class="tab" data-view="dictionary" aria-current="page"><span aria-hidden="true">📖</span>Dictionary</button>
+    <button class="tab" data-view="translator"><span aria-hidden="true">🧠</span>Translator</button>
+    <button class="tab" data-view="quiz"><span aria-hidden="true">🎯</span>Quiz</button>
+    <button class="tab" data-view="favorites"><span aria-hidden="true">★</span>Saved <b id="favCount" hidden>0</b></button>
+  </nav>
+
+  <main id="main" class="wrap">
+
+    <!-- DICTIONARY -->
+    <section id="view-dictionary" class="view">
+      <div id="spot" class="spot glass" aria-live="polite"></div>
+
+      <div class="toolbar">
+        <div class="search">
+          <span aria-hidden="true">🔎</span>
+          <input id="search" type="search" placeholder="Search slang… try “rizz”" autocomplete="off" aria-label="Search slang words">
+          <kbd aria-hidden="true">/</kbd>
+        </div>
+        <button class="btn" id="randomBtn">🎲 Random word</button>
+      </div>
+
+      <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+      <p id="count" class="count" aria-live="polite"></p>
+      <div id="grid" class="grid"></div>
+
+      <div id="empty" class="empty glass" hidden>
+        <div class="big" aria-hidden="true">🫥</div>
+        <h3>Not in the dictionary. Yet.</h3>
+        <p>Even the internet hasn't coined that one. Check the spelling, try a shorter search, or pick another category.</p>
+        <button class="btn" id="resetBtn">Clear search</button>
+      </div>
+    </section>
+
+    <!-- TRANSLATOR -->
+    <section id="view-translator" class="view" hidden>
+      <h2 class="h2">Brainrot Translator</h2>
+      <p class="sub">Paste normal English, get it back cooked. Runs entirely in your browser with a word-and-phrase engine. No AI, no servers.</p>
+      <div class="panel glass">
+        <label for="tIn">Your boring sentence</label>
+        <textarea id="tIn" rows="4" maxlength="500" placeholder="Honestly, my friend and I had a really good dinner and I am very tired."></textarea>
+        <div class="samples" id="samples">
+          <button class="chip" data-s="Honestly, my friend and I had a really good dinner.">🍝 Dinner</button>
+          <button class="chip" data-s="Hello! That outfit is amazing and you should go outside more.">👗 Outfit</button>
+          <button class="chip" data-s="I am very tired because the boring meeting was embarrassing.">😴 Meeting</button>
+        </div>
+        <div class="row">
+          <label for="tLevel" class="inline">Heat</label>
+          <select id="tLevel">
+            <option value="1">Mild</option>
+            <option value="2" selected>Spicy</option>
+            <option value="3">Fully cooked</option>
+          </select>
+          <button class="btn" id="tGo">Translate</button>
+        </div>
+      </div>
+      <div class="panel glass out" id="tOutWrap" hidden>
+        <span class="label">Brainrot version</span>
+        <p id="tOut" aria-live="polite"></p>
+        <div class="actions">
+          <button class="btn ghost" id="tCopy">Copy</button>
+          <button class="btn ghost share-btn" id="tShare">Share</button>
+          <button class="btn ghost" id="tAgain">🔁 Re-roll</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="view-quiz" class="view" hidden>
+      <h2 class="h2">Brainrot Quiz</h2>
+      <p class="sub">10 questions. Pick the real definition. No Googling.</p>
+      <div id="quizBox" class="panel glass"></div>
+    </section>
+
+    <!-- FAVORITES -->
+    <section id="view-favorites" class="view" hidden>
+      <div class="fav-head">
+        <div>
+          <h2 class="h2">Saved words</h2>
+          <p class="sub">Your personal vocabulary stash, stored on this device.</p>
+        </div>
+        <button class="btn ghost" id="clearFavs" hidden>Clear all</button>
+      </div>
+      <div id="favGrid" class="grid"></div>
+      <div id="favEmpty" class="empty glass" hidden>
+        <div class="big" aria-hidden="true">☆</div>
+        <h3>Nothing saved yet</h3>
+        <p>Tap the star on any word and it shows up here.</p>
+        <button class="btn" data-view="dictionary" id="goDict">Browse the dictionary</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
