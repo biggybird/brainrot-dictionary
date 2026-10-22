@@ -2,6 +2,8 @@
 
 **Decode the internet. Speak fluent brainrot. 💀**
 
+🌐 **[Open the live website](https://biggybird.github.io/brainrot-dictionary/)** · 🧑‍💻 **[View the source code](https://github.com/biggybird/brainrot-dictionary)**
+
 Brainrot Dictionary is a playful, mobile-friendly web app for exploring Gen-Z slang, gaming terms, TikTok vocabulary, memes, and internet shorthand. Search for a word, learn what it means, see it used in a sentence, and test your knowledge with a brainrot quiz.
 
 ## ✨ Features
