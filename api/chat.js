@@ -1,6 +1,7 @@
 const ALLOWED_ORIGINS = new Set([
   "https://biggybird.github.io",
-  "https://brainrot-dictionary.vercel.app"
+  "https://brainrot-dictionary.vercel.app",
+  "https://biggybird-brainrot-dictionary.vercel.app"
 ]);
 
 module.exports = async function handler(req, res) {
